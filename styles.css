@@ -1,0 +1,227 @@
+/*
+Ejercicio completo con HTML Y CSS
+(HECHO)1. Crear un documento HTML y vincularlo con un CSS.
+(HECHO)2. Crear una estructura HTML que cuente con un contenedor general,
+que tenga una cabecera, menú, barra lateral, seccion contenido principal,
+elementos dentro del contenedor principal y footer.
+(HECHO)3. Todo el contenido debe estar dentro del contenedor general y su ancho debe ser de 1200px y estar centrado
+(HECHO)4. El header debe ocupar el 100% del ancho y tener un texto grande centrado.
+(HECH0)5. El menú debe tener los elementos uno al lado del otro.
+(HECHO)6. El contenido principal debe tener un ancho del 70%
+7. El contenido dentro del contenedor prnincipal debe ser una cuadrícula con 4 líneas de 2 cajas.
+(HECHO)8- La barra lateral debe tener un ancho del 30%
+9. El footer debe tener un ancho del 100% del div que lo contiene y debe estar debajo.
+*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+
+    background-image: url(imagenes/hola.png);
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    background-attachment:fixed;
+    background-position: left bottom;
+    display: flex;
+}
+
+@font-face {
+    font-family: Shippori_Antique;
+    src: url(fonts/Shippori_Antique/ShipporiAntique-Regular.ttf);
+}
+@font-face {
+    font-family: Gochi_Hand;
+    src: url(fonts/Gochi_Hand/GochiHand-Regular.ttf);
+}
+@font-face {
+    font-family:white_chick;
+    src: url(fonts/white_chick/White\ Chick.ttf);
+}
+h1{
+    font-family: Shippori_Antique;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 40px;
+}
+
+h2,h3{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    font-size: 25px;
+}
+
+#general{
+    width: 1200px;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+#header{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 90px;
+    background-color: rgb(247, 115, 159);
+    text-shadow: 0px 2px 0px rgb(158, 39, 255);
+}
+.clearfix{
+    float: none;
+    clear: both;
+}
+/*#menu{
+    background-color:rgb(227,180,224);
+}*/
+#menu ul li{
+font-family: Shippori_Antique;
+   /* display: inline-block;*/
+/*
+display: flex; align-items: center;
+border-right: 1px solid rgb(158, 39, 255);*/
+display: block;
+float: left;
+padding: 15px;
+width: 200px; height: 35px;
+
+margin: 1.3em; cursor: pointer;
+padding: 0.001px;
+background-color: rgb(201,133,199);
+position: relative;
+color:white;
+border-radius: 5px;
+}
+
+#menu ul li::before,
+#menu ul li::after{
+content: '';
+position: absolute; z-index: -1;
+border-radius: 5px; width: 103%;
+transition: all .4s;
+}
+
+#menu ul li::before{
+left: 0%; height: 100%;
+background: linear-gradient(to right,rgb(252, 113, 199),rgb(179,120,206));
+}
+#menu ul li::after{
+    left: -4%; height: 100%;
+    background: #ffffff56; backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.164);
+}
+
+#menu ul li:hover::before{
+    transform: translateX(-4%);
+}
+#menu ul li:hover::after{
+    transform: translateX(4%);
+}
+#menu ul li a{
+    color: rgb(248, 239, 241);
+    text-shadow: 0px 1px 1px rgb(201,133,199); 
+    padding-left: 18px;
+}
+/*#menu ul li:hover{
+    *background:rgb(250, 199, 241);
+    cursor: pointer;
+}*/
+ 
+/*#menu ul li:hover a{
+    color: rgb(92, 1, 88);
+}*/ 
+.caja{
+    font-family: Shippori_Antique;
+}
+
+#contenido{
+    float: left;
+    width: 69%;
+   
+}
+#lateral{
+    float: left;
+    width: 30%;
+    border: 1px solid black;
+    min-height: 500px;
+    max-height: 600px;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+
+    /* aquí esta no tiene prioridad así que hay que poner la palabra important*/
+    /*box-shadow: 5px 5px 15px rgb(28, 57, 58) inset !important;*/
+
+#contenido .caja{
+    position: relative;
+    display: block;
+    width: 250px;
+    height: 250px;
+    float: left;
+    border: 1px solid rgb(155, 44, 189);
+    padding: 4px;
+    margin: 20px;
+    margin-left: 102px;
+    background-color:  rgb(201,133,199);
+    /*border-radius: 40px 0px 40px 0px;*/
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgb(28, 57, 58);
+}
+#contenido .caja h2{
+    text-align: center;
+}
+#lorem{
+    font-size:10px;
+    text-align: justify;
+}
+.caja p{
+    text-align: center;
+    line-height: 30px;
+}
+#contenido > h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    padding: 10px;
+    color: rgb(52, 184, 189);
+    text-shadow: 1px 1px 0px rgb(87, 1, 121);
+}
+
+footer{
+    width: 100%;
+    text-align: center;
+    color: rgb(247,115,159);
+    padding: 20px;
+    font-family: white_chick;
+    font-size: 40px;
+    text-shadow: 0px 1px 0px purple;
+}
+
+/*.libre{
+    /*position: absolute;
+    top: 300px;
+    left:50%;
+    border: 1px solid black;
+    background-color: rgb(243, 230, 41);
+    color: black;
+    width: 50px;
+    height: 50px;
+    font-size: 13px;
+    z-index: 2;*/
+
+/*.libre2{
+    /*position: absolute;
+    top: 308px;
+    left:50%;
+    border: 1px solid black;
+    background-color: rgb(13, 2, 165);
+    color: black;
+    width: 50px;
+    height: 50px;
+    font-size: 13px;
+    z-index: 3;*/
+
+.p_fija{
+    position: fixed;
+    top: 50%;
+    left:50px;
+   
+}
